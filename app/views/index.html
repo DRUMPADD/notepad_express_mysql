@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid d-flex justify-content-around align-items-center mt-5">
+
+        <div class="col-md-4">
+            <form action="/createTask" method="POST" class="card card-body">
+                <div class="form-group m-2">
+                    <input type="text" name="taskName" placeholder="Task name" class="form-control">
+                </div>
+                <div class="form-group m-2">
+                    <input type="text" name="description" placeholder="Description" class="form-control">
+                </div>
+
+                <input type="submit" value="Accept" class="btn btn-primary form-control">
+            </form>
+        </div>
+
+        <div class="col-md-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col"><%= fields[0].name %></th>
+                        <th scope="col"><%= fields[1].name %></th>
+                        <th scope="col"><%= fields[2].name %></th>
+                        <th colspan="2" class="text-center">Action</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <% for (let row = 0; row < data.length; row++) { %>
+                        <tr>
+                            <td><%= data[row].id %></td>
+                            <td><%= data[row].taskName %></td>
+                            <td><%= data[row].description %></td>
+                            <td><a href="/updateTask/<%= data[row].id %>" class="btn btn-info">Actualizar</a></td>
+                            <td><a href="/deleteTask/<%= data[row].id %>" class="btn btn-danger">Eliminar</a></td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

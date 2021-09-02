@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update task</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid d-flex justify-content-around mt-5">
+
+        <div class="col-md-4">
+            <form action="/updateTask/ <%= data.id %>" method="POST" class="card card-body">
+                <div class="form-group m-2">
+                    <input type="text" name="taskName" class="form-control" value="<%= data.taskName %>">
+                </div>
+                <div class="form-group m-2">
+                    <input type="text" name="description" class="form-control" value="<%= data.description %>">
+                </div>
+
+                <input type="submit" value="Update" class="btn btn-primary form-control">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
